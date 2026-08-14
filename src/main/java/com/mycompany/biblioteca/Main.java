@@ -28,4 +28,14 @@ static Scanner sc = new Scanner(System.in);
         
         System.out.println("Cliente creado correctamente.");
     }
+    
+    public static void listarClientes(String[] args) {
+        if (clientes.isEmpty()){
+            System.out.println("No hay clientes registrados");
+            return;
+        }
+        for (Cliente cliente : clientes) {
+            System.out.println("cliente");
+         }
+    }
 }
