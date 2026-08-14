@@ -46,4 +46,25 @@ static Scanner sc = new Scanner(System.in);
         }
         return null;
     }
+    public static void actualizarCliente(){
+        System.out.println("Ingrese ID del cliente: ");
+        String id = sc.nextLine();
+        
+        Cliente cliente = buscarCliente(id);
+        
+        if(cliente != null){
+            System.out.println("Nuevo nombre: ");
+            cliente.setNombre(sc.nextLine());
+            
+            System.out.println("Nuevo telefono: ");
+            cliente.setTelefono(sc.nextLine());
+            
+            System.out.println("Nuevo email: ");
+            cliente.setEmail(sc.nextLine());
+            
+            System.out.println("Cliente Actualizado.");
+        }else{
+            System.out.println("Cliente no encontrado.");
+        }
+    }
 }
