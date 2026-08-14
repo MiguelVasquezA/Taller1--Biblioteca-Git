@@ -67,4 +67,18 @@ static Scanner sc = new Scanner(System.in);
             System.out.println("Cliente no encontrado.");
         }
     }
+    public static void eliminarCliente(){
+        System.out.println("Ingrese ID del cliente a eliminar: ");
+        String id = sc.nextLine();
+        
+        Cliente cliente = buscarCliente(id);
+        
+        if(cliente != null){
+            clientes.remove(cliente);
+            System.out.println("Cliente eliminado.");
+        }else {
+            System.out.println("Cliente no encontrado");
+        }
+    }
+    
 }
