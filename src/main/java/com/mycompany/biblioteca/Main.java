@@ -29,7 +29,7 @@ static Scanner sc = new Scanner(System.in);
         System.out.println("Cliente creado correctamente.");
     }
     
-    public static void listarClientes(String[] args) {
+    public static void listarClientes() {
         if (clientes.isEmpty()){
             System.out.println("No hay clientes registrados");
             return;
@@ -37,5 +37,13 @@ static Scanner sc = new Scanner(System.in);
         for (Cliente cliente : clientes) {
             System.out.println("cliente");
          }
+    }
+    public static Cliente buscarCliente(String id) {
+        for (Cliente cliente : clientes){
+            if(cliente.getId().equals(id)){
+                return cliente;
+            }
+        }
+        return null;
     }
 }
