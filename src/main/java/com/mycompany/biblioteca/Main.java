@@ -10,8 +10,12 @@ import java.util.Scanner;
 public class Main {
 static ArrayList<Cliente>clientes =new ArrayList<>();
 static Scanner sc = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        System.out.println("Sistema Biblioteca");
+    }
 
-    public static void crearCliente(String[] args) {
+    public static void crearCliente() {
         System.out.println("ID: ");
         String id = sc.nextLine();
         
