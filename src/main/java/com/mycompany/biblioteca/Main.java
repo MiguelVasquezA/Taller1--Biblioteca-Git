@@ -200,4 +200,51 @@ public static void main(String[] args) {
                     System.out.println("Cliente no encontrado.");
                 }
                 break;
+                case 4:
+                actualizarCliente();
+                break;
+
+            case 5:
+                eliminarCliente();
+                break;
+
+            case 6:
+                crearLibro();
+                break;
+
+            case 7:
+                listarLibros();
+                break;
+
+            case 8:
+                System.out.print("Ingrese el codigo del libro: ");
+                String codigo = sc.nextLine();
+
+                Libro libro = buscarLibro(codigo);
+
+                if (libro != null) {
+                    System.out.println(libro);
+                } else {
+                    System.out.println("Libro no encontrado.");
+                }
+                break;
+
+            case 9:
+                actualizarLibro();
+                break;
+
+            case 10:
+                eliminarLibro();
+                break;
+
+            case 0:
+                System.out.println("Saliendo del sistema...");
+                break;
+
+            default:
+                System.out.println("Opcion no valida.");
+        }
+
+    } while (opcion != 0);
+}
 }
