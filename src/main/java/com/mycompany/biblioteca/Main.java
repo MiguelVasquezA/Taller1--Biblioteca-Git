@@ -24,7 +24,7 @@ static Scanner sc = new Scanner(System.in);
         System.out.println("Email: ");
         String email = sc.nextLine();
         
-        clientes.add(new Cliente(id, nombre, telefono, email));
+        clientes.add(new Cliente(email, id, nombre, telefono));
         
         System.out.println("Cliente creado correctamente.");
     }
@@ -35,7 +35,7 @@ static Scanner sc = new Scanner(System.in);
             return;
         }
         for (Cliente cliente : clientes) {
-            System.out.println("cliente");
+            System.out.println(cliente);
          }
     }
     public static Cliente buscarCliente(String id) {
@@ -80,5 +80,6 @@ static Scanner sc = new Scanner(System.in);
             System.out.println("Cliente no encontrado");
         }
     }
+    
     
 }
