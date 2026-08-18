@@ -97,5 +97,24 @@ static Scanner sc = new Scanner(System.in);
     System.out.println("Libro creado correctamente.");
 }
     
-    
+    public static void listarLibros() {
+    if (libros.isEmpty()) {
+        System.out.println("No hay libros registrados.");
+        return;
+    }
+
+    for (Libro libro : libros) {
+        System.out.println(libro);
+    }
+}
+
+public static Libro buscarLibro(String codigo) {
+    for (Libro libro : libros) {
+        if (libro.getCodigo().equals(codigo)) {
+            return libro;
+        }
+    }
+
+    return null;
+}
 }
