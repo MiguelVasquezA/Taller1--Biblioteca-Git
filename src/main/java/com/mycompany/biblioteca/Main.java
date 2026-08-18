@@ -138,6 +138,18 @@ public static void actualizarLibro() {
         System.out.println("Libro no encontrado.");
     }
 }
+public static void eliminarLibro() {
+    System.out.println("Ingrese el codigo del libro a eliminar: ");
+    String codigo = sc.nextLine();
 
+    Libro libro = buscarLibro(codigo);
+
+    if (libro != null) {
+        libros.remove(libro);
+        System.out.println("Libro eliminado correctamente.");
+    } else {
+        System.out.println("Libro no encontrado.");
+    }
+}
 
 }
