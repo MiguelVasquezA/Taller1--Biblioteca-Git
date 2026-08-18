@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Main {
 static ArrayList<Cliente>clientes =new ArrayList<>();
 static ArrayList<Libro> libros = new ArrayList<>();
+static ArrayList<Prestamo> prestamos = new ArrayList<>();
+
 static Scanner sc = new Scanner(System.in);
     
 
@@ -150,6 +152,70 @@ public static void eliminarLibro() {
     }
 }
 
+public static boolean libroDisponible(Libro libro){
+    for (Prestamo p : prestamos) {
+        if(p.getLibro().getCodigo().equals(libro.getCodigo())&& p.getEstado().equals("activo")){
+            return false;
+        }
+    }
+    return true;
+}
+public static void crearPrestamo() {
+    System.out.print("ID del prestamo: ");
+    String idPrestamo = sc.nextLine();
+
+    System.out.print("ID del cliente: ");
+    String idCliente = sc.nextLine();
+    Cliente cliente = buscarCliente(idCliente);
+    if (cliente == null) {
+        System.out.println("Cliente no encontrado.");
+        return;
+    }
+    System.out.print("Codigo del libro: ");
+    String codigo = sc.nextLine();
+    Libro libro = buscarLibro(codigo);
+    if (libro == null) {
+        System.out.println("Libro no encontrado.");
+        return;
+    }
+    if (!libroDisponible(libro)) {
+        System.out.println("El libro ya esta prestado.");
+        return;
+    }
+
+    Prestamo prestamo = new Prestamo(idPrestamo, cliente, libro);
+    prestamos.add(prestamo);
+    System.out.println("Prestamo registrado correctamente.");
+}
+
+public static void devolverPrestamo() {
+    System.out.print("ID del prestamo a devolver: ");
+    String idPrestamo = sc.nextLine();
+
+    for (Prestamo p : prestamos) {
+        if (p.getIdPrestamo().equals(idPrestamo) && p.getEstado().equals("activo")) {
+            p.setEstado("devuelto");
+            System.out.println("Devolucion registrada correctamente.");
+            return;
+        }
+    }
+    System.out.println("Prestamo no encontrado o ya devuelto.");
+}
+
+public static void listaPrestamosActivos() {
+    boolean hayActivos = false;
+    for (Prestamo p : prestamos) {
+        if (p.getEstado().equals("activo")) {
+            System.out.println(p);
+            hayActivos = true;
+        }
+    }
+    if (!hayActivos) {
+        System.out.println("No hay prestamos activos.");
+    }
+}
+
+    
 public static void main(String[] args) {
 
     int opcion;
@@ -169,6 +235,10 @@ public static void main(String[] args) {
         System.out.println("8. Buscar libro");
         System.out.println("9. Actualizar libro");
         System.out.println("10. Eliminar libro");
+        System.out.println("------------------------------");
+        System.out.println("11. Registrar prestamo");
+        System.out.println("12. Registrar devolucion");
+        System.out.println("13. Listar prestamos activos");
         System.out.println("------------------------------");
         System.out.println("0. Salir");
         System.out.println("==============================");
@@ -234,7 +304,18 @@ public static void main(String[] args) {
             case 10:
                 eliminarLibro();
                 break;
-
+            case 11:
+                crearPrestamo();
+                break;
+             
+            case 12:           
+                devolverPrestamo();
+                break;
+                
+             case 13:
+                 listaPrestamosActivos();
+                 break;
+                         
             case 0:
                 System.out.println("Saliendo del sistema...");
                 break;
