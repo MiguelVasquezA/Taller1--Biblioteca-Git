@@ -4,9 +4,9 @@ Taller 1 - Programación III - UPC
 
 ## Autor
 
-Miguel Vásquez Aguirre
-Adriana Dangond Cantillo
-Abraham Medina Rodrigues
+Miguel Vásquez Aguirre, 
+Adriana Dangond Cantillo, 
+Abraham Medina Rodriguez
 
 ## Descripción
 
