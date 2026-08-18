@@ -152,4 +152,52 @@ public static void eliminarLibro() {
     }
 }
 
+public static void main(String[] args) {
+
+    int opcion;
+
+    do {
+        System.out.println("\n==============================");
+        System.out.println("     SISTEMA DE BIBLIOTECA");
+        System.out.println("==============================");
+        System.out.println("1. Crear cliente");
+        System.out.println("2. Listar clientes");
+        System.out.println("3. Buscar cliente");
+        System.out.println("4. Actualizar cliente");
+        System.out.println("5. Eliminar cliente");
+        System.out.println("------------------------------");
+        System.out.println("6. Crear libro");
+        System.out.println("7. Listar libros");
+        System.out.println("8. Buscar libro");
+        System.out.println("9. Actualizar libro");
+        System.out.println("10. Eliminar libro");
+        System.out.println("------------------------------");
+        System.out.println("0. Salir");
+        System.out.println("==============================");
+        System.out.print("Seleccione una opcion: ");
+
+        opcion = Integer.parseInt(sc.nextLine());
+
+        switch (opcion) {
+
+            case 1:
+                crearCliente();
+                break;
+
+            case 2:
+                listarClientes();
+                break;
+
+            case 3:
+                System.out.print("Ingrese el ID del cliente: ");
+                String id = sc.nextLine();
+
+                Cliente cliente = buscarCliente(id);
+
+                if (cliente != null) {
+                    System.out.println(cliente);
+                } else {
+                    System.out.println("Cliente no encontrado.");
+                }
+                break;
 }
