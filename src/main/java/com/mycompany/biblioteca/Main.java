@@ -8,9 +8,7 @@ static ArrayList<Cliente>clientes =new ArrayList<>();
 static ArrayList<Libro> libros = new ArrayList<>();
 static Scanner sc = new Scanner(System.in);
     
-    public static void main(String[] args) {
-        System.out.println("Sistema Biblioteca");
-    }
+
 
     public static void crearCliente() {
         System.out.println("ID: ");
